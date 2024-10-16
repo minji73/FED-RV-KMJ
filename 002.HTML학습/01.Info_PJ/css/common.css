@@ -1,4 +1,5 @@
 @charset "utf-8";
+/* CSS 외부파일은 반드시 맨위에 utf-8 설정 필수! */
 /* Info PJ 공통 CSS - common.css */
 
 
@@ -18,7 +19,7 @@
         /* 중앙정열 tac */
         text-align: center;
         /* 배경색 bgc */
-        background-color: #dbfdd6;
+        background-color: #bac4da81;
       }
       /* 전체 타이틀 
       CSS에서 띄어쓰기는 하위요소를 선택함*/
@@ -31,18 +32,18 @@
         /* 글자 크기 fz */
         font-size: 40px;
         /* 글자색 c */
-        color: #06a31b;
+        color: #1971c4;
         /* 글자그림자 ts 
          text-shadow: x축 y축 블러 색; */
         text-shadow: 5px 5px 0px
-          hsla(81, 49%, 44%, 0.418);
+          hsla(221, 77%, 17%, 0.247);
       }
 
       /* 메뉴 a요소 */
       /* 기본셋팅된 글자색, 밑줄 변경 */
       .menu a {
         font-family: "Jua", sans-serif;
-        color: rgb(62, 179, 16);
+        color: rgb(76, 175, 36);
         /* 글자밑줄색 없음 tdn */
         text-decoration: none;
       }
@@ -98,7 +99,7 @@
       /* 3. 하단영역 */
       #info-area {
         /* 배경색 bgc */
-        background-color: #57792cce;
+        background-color: #395cbbaf;
         color: white;
         font-size: 16px;
 
@@ -124,7 +125,7 @@
         종류(선령 solid,데쉬선 dashed,점선 dotted)
         */
         border: 2px dashed
-          rgb(52, 124, 23);
+          rgb(113, 117, 161);
         /* 둥근 모서리 */
         border-radius: 20px;
         /*  안쪽여백(패딩) */
