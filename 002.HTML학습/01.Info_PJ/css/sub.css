@@ -568,12 +568,38 @@ _> 형제선택자 + 사용함: dd+dt */
   margin-top: 20px;
 }
 
+
+
+
+/* 포토뉴스파트 */
 /* 사진뉴스 테이블 */
-.photo-news table{
+.photo-news table {
+/* 타이틀 */
+.pnews h3{
+  /* 배경그라데이션 없앰 */
+  background-image: none;
+  /* 중앙정렬 */
+  text-align: center;
+}
+
+/* 가상요소로 사진기 아이콘 넣기 */
+.pnews h3::before{
+  content: '📷';
+  vertical-align: -1px;
+  font-size: 31px;
+  margin-right: 8px;
+}
+.pnews h3::after{
+  content: '📺';
+  vertical-align: -1px;
+  font-size: 31px;
+  margin-left: 8px;
+}
+
   /* 최대가로크기설정: maw
   최대 가로크기보다 작아지면 오토로 전환 */
   max-width: 500px;
-  
+
   /* 테이블 간격없앰(정확한 수치화를 위해) */
   border-collapse: collapse;
   /*  separate가 기본값임(사이 간격있음)
@@ -588,7 +614,7 @@ _> 형제선택자 + 사용함: dd+dt */
 }
 
 /* 첫번째 td: 숫자데이터 부분 */
-.photo-news td:first-child{
+.photo-news td:first-child {
   /* 가로크기: w */
   width: 50px;
   /* 세로크기: h */
@@ -600,7 +626,7 @@ _> 형제선택자 + 사용함: dd+dt */
 }
 
 /* 두번째 td: 기사제목링크 부분 */
-.photo-news td:nth-child(2){
+.photo-news td:nth-child(2) {
   /* 배경색: bgc */
   background-color: #e4e4e4;
 
@@ -609,28 +635,83 @@ _> 형제선택자 + 사용함: dd+dt */
 }
 
 /* 세번째 td: 사진링크 부분 */
-.photo-news td:last-child{
+.photo-news td:last-child {
   /* 배경색: bgc */
   background-color: #e4e4e4;
 }
 
-
-
 /* 사진뉴스 a요소 셋팅 */
-.photo-news a{
+.photo-news a {
   /* 줄바꿈방지 설정 해제: whn
   -> 줄바꿈방지 설정경우 테이블 td에서 크기가 글내용만큼 
   밀려서 나오기때문에 기본줄바꿈으로 설정함*/
   white-space: nowrap;
+
+  /* 줄간격조정 
+  line-height: 1.5px;*/
+
+  /* 1. 여러줄일때 말줄임 설정하기 
+  display: -webkit-box; */
+  /* 2. 넘치는 요소 숨기기 
+  overflow: hidden;*/
+  /* 3. 텍스트 말줄임 표시 
+  text-overflow: ellipsis;*/
+  /* 4. 말줄임 처리 줄 수: 여기선 2줄처리 
+  -webkit-line-clamp: 2;*/
+  /* 5. 말줄임 퍼리 방향설정: 수직방향(vertical) 
+  -webkit-box-orient: vertical;*/
+  /* 6. 높이값 제한 설정(이유: 숨겨야하니까)
+     max-height: 2.5em; */
+  /* 7. 줄바꿈 방지를 일반으로 변경(줄바꿈상태) 
+  white-space: normal; -> 위에서 이미 줌 */
 }
 
+/* CSS속성이나 값에 벤더사 접두어
+-브라우저 제작사 별로 특성 속성을 지원할 경우
+특정버전부터 지원하게 되고 그때 브라우저사 접두어를 사용함
+1.-webkit-: 크롬, 사파리
+2.-ms-: 익스플로러/엣지
+3.-o-: 오페라
+4. -moz-: (모질라) 파이어폭스
+*/
+
+
 /* 사진뉴스 이미지 */
-.photo-news img{
+.photo-news img {
   width: 100px;
   height: 70px;
   vertical-align: middle;
 }
 /* 사이 구분선 넣기: 두번쨰 tr부터 */
-.photo-news tr+tr td{
+.photo-news tr + tr td {
   border-top: 2px solid #a8a7a7;
+}
+
+/* 비디오박스: .mv0-box */
+.mv-box iframe {
+  width: 100%;
+  height: 392px;
+}
+
+/* Mark 태그 디자인 변경 */
+.contents mark {
+  font-family: "Bagel Fat One";
+  font-size: 26px;
+  color: #333;
+  line-height: 1.7;
+  background: #fff1c6;
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  padding: 10px 20px;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  box-sizing: border-box;
+}
+
+/* em요소 디자인 변경 */
+.contents strong {
+  font-size: normal;
+  color: magenta;
+  width: bold;
 }

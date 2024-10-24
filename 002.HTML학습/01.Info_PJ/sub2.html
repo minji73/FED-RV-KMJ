@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>
+      네이버요약뉴스 - 경제 뉴스
+    </title>
+    <!-- 웹폰트 CDN방식 호출하기 -->
+    <!-- CDN은 Content Delivery Network
+      네트웤으로 컨텐트 불러오기 -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 스타일 요소 -->
+    <!-- <style></style> -->
+
+    <!-- 외부 CSS 불러오기 -->
+    <!-- 공통 CSS -->
+    <link
+      rel="stylesheet"
+      href="./css/common.css"
+    />
+    <!-- 서브용 CSS -->
+    <link
+      rel="stylesheet"
+      href="./css/sub.css"
+    />
+  </head>
+  <body>
+    <!-- 1. 상단영역 -->
+    <header id="top-area" class="part">
+      <!-- 1-1. 타이틀 -->
+      <h1>네이버 요약뉴스</h1>
+      <!-- 1-2. 메뉴 -->
+      <nav class="menu">
+        <a href="index.html">
+          <img
+            src="images/naver_logo.png"
+            alt="네이버로고"
+            style="
+              width: 40px;
+              vertical-align: middle;
+            "
+          />
+        </a>
+        <span></span>
+        <a href="sub1.html">정치</a>
+        <span> | </span>
+        <a href="sub2.html">경제</a>
+        <span> | </span>
+        <a href="sub3.html">사회</a>
+        <span> | </span>
+        <a href="sub4.html">IT/과학</a>
+        <span> | </span>
+        <a href="sub5.html">TV/연예</a>
+      </nav>
+    </header>
+    <!-- <div id="header"></div> -->
+
+    <!-- 2. 메인영역 -->
+    <main
+      id="main-area"
+      class="part main-area"
+    >
+      <!-- 2-1. 서브타이틀 -->
+      <h2 class="sub-title economics">
+        경제 뉴스
+      </h2>
+      <!-- 2-2.언론사로고 -->
+      <div class="press-logo">
+        <img
+          src="./images/press_logo_2.png"
+          alt="경향신문로고"
+        />
+      </div>
+      <!-- 2-3. 기사제목 -->
+      <h3 class="article-title">
+        ‘한강’ 효과로 출판주
+        상한가···금리인하에도 코스피
+        하락마감
+      </h3>
+      <!-- 2-4. 기사사진 
+       figure요소 : 사진,그림 넣는 블록박스-->
+      <figure class="article-picture">
+        <img
+          src="./images/photonews_economics1.jpg"
+          alt="코스피"
+          
+        />
+        <!-- 사진설명은 figcaption요소 사용 -->
+        <figcaption>
+          <small>
+            ‘출판종목’ 상한가, 거래량
+            급등 금리인하 호재에도 증시,
+            외국인 매도에 하락
+            환율↓국채금리 ↓
+          </small>
+        </figcaption>
+      </figure>
+      <!-- 2-5. 기사내용 -->
+      <section class="contents">
+        <p>
+          소설가 한강이 한국 최초로
+          노벨문학상을 수상하면서 출판
+          관련주들이 11일 줄줄이
+          상한가를 찍었다. 이날 한국은행
+          금융통화정책위원회가 3년 2개월
+          만에 긴축정책이 끝나면서
+          기준금리를 인하했지만 증시에
+          미치는 영향은 미미했다.
+        </p>
+
+        <p>
+          이날 증시에서 눈에 띈 건 출판
+          관련 종목이었다.
+        </p>
+
+        <p>
+          온라인 서점 예스24는 이날
+          일찌감치 상한가(30%)까지 올라
+          6380원에 마감했다. 예스24의
+          모회사인 한세예스24홀딩스도
+          상한가인 5850원에 장을 마쳤다.
+          거래량도 전날보다 4배 이상
+          뛰었다.
+        </p>
+
+        <p>
+          웅진씽크빅(17.85%),
+          삼성출판사(14.24%),
+          웅진(7.80%)도 급등했다. 아동
+          출판사 예림당은 경영권
+          분쟁까지 겹치면서 상한가인
+          2810원에 거래를 마쳤다.
+        </p>
+
+        <p>
+          밀리의서재(23.63%), 출판사
+          창비의 출판 물류를 담당하는
+          다산네트웍스(14.24%) 역시
+          급등했다.
+        </p>
+
+        <p>
+          그러나 코스피 지수는
+          전거래일보다 2.25포인트(0.09%)
+          내린 2596.91에 장을 마쳤다.
+          유동성을 늘리는 금리인하
+          호재에도 외국인의 매도 앞에서
+          힘을 잃은 것이다.
+        </p>
+
+        <p>
+          코스피 지수는 장 초반
+          전거래일대비
+          12.86포인트(0.49%) 오른
+          2612.02로 출발해 장 초반
+          2620대로 올라섰지만 상승세를
+          이어가지 못했다.
+          유가증권시장에서 기관과 개인이
+          각각 2702억원과 2905억원
+          매수했음에도 외국인이
+          6038억원어치를 팔고 떠나면서
+          하락세를 면치 못했다.
+        </p>
+
+        <p>
+          오전 중 상승세를 타던 코스닥
+          지수도 오후들어 하락
+          전환하면서 4.50포인트(0.58%)
+          내린 770.98에 거래를 마쳤다.
+        </p>
+
+        <p>
+          이날 금통위가 올해 추가 금리
+          인하 가능성이 낮다고 밝히면서
+          원·달러 환율와 국채금리 모두
+          하락했다.
+        </p>
+
+        <p>
+          이날 서울외환시장에서 원·달러
+          환율(오후 3시 30분 기준)은
+          5.7원 내린 1349.5원으로
+          마감했다. 장초반 상승세를
+          보이다가 이창용 한은 총재가
+          “금통위원 6명 가운데 5명이
+          향후 3개월 내에 금리를 3.25%로
+          유지하는 것이 적절하다고
+          밝혔다”고 말하면서 환율은 다시
+          내려갔다.
+        </p>
+
+        <p>
+          이날 3년물 국채 금리는 전
+          거래일보다 0.015% 내린 연
+          2.947%를 기록했다.
+        </p>
+
+        <p>
+          최진호 우리은행 투자상품전략부
+          연구원은 “이번 인하 사이클에서
+          기준금리가 2.5%에 도달한다고
+          하더라도, 현재 3% 내외의 10년
+          이상 장기물은 기간 구조 때문에
+          추가적인 금리 하락이 쉽지
+          않다”며 “장기채권 투자는
+          적어도 내년말까지의 장기적인
+          투자 관점 아래, 공격적 추격
+          매수보다는 금리 상승 변동성을
+          이용한 분할 매수가 필요할
+          것으로 판단된다”고 말했다.
+        </p>
+
+        
+      </section>
+
+      <!-- 2-6. 기자정보 -->
+      <div class="reporter">
+        윤지원 기자 yjw@kyunghyang.com
+      </div>
+
+      <!-- 2-7. 기사원문 -->
+      <div class="article-link">
+        <a
+          href="https://n.news.naver.com/mnews/article/032/0003325764"
+          >기사원문</a
+        >
+      </div>
+
+      <!-- 오늘의 작품 & 느낌 -->
+      <article class="work">
+        <h4>오늘의 작품 &amp; 느낌</h4>
+        <figure>
+          <img
+            src="./images/데이비드 호크니.jpg"
+            alt="데이비드 호크니의 더 스플래쉬"
+            width="30%"
+          />
+          <figcaption>
+            데이비드 호크니 &lt;더 스플래쉬&gt;
+          </figcaption>
+        </figure>
+      </article>
+
+      <!-- 
+        [ html요소에서 특수문자 처리 ]
+        & 엔퍼센드 &amp;
+        < 여는꺽쇠 &lt; (lt는 less than ~ 보다 작은)
+        > 닫는꺽쇠 &gt; (gt는 greater than ~ 보다 작은)
+       -->
+    </main>
+    <!-- <div id="main"></div> -->
+
+    <!-- 3. 하단영역 -->
+    <footer id="info-area" class="part">
+      <address>
+        서울시 강남구 역삼동 119 대호B
+        8F <br />
+        대표: Tom Brace Parker <br />
+        전화: 010-2222-3333
+      </address>
+    </footer>
+    <!-- <div id="footer"></div> -->
+  </body>
+</html>
