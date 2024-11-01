@@ -71,6 +71,12 @@
 
 
                 9. 부모자격
+                -> 자식요소가 앱솔루트일때 부모자격으로 relative를
+                주는 경우가 많다! 왜? 기존 디자인이 그대로 유지되니까!
+                static한 특징이 있는 relative를 부모자격으로 설정하는 경우가 
+                많을 것이다!
+                실제로 부모자격은 static이 아닌 포지션 
+                즉, relative, absolute, fixed, sticky다!
             
                  ___________________________________
 
@@ -120,10 +126,44 @@
       }
       #s2 {
         background-color: lightcoral;
+
+        
+      }
+      /* 제목넣기: 렐러티브! */
+      h1.tit {
+        /* 포지션박스 */
+        position: absolute;
+        top: 50px;
+        left: 30%;
+        /* 나의 부모는? 보이는 화면 window */
+        /* 겹처질때 가장위로하기 z-index : z9999
+        주의! 절대 막쓰면 안됨 꼭필요한애 하나만! */
+        z-index: 999;
+
+        /* 박스모델 */
+        width: 40%;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        border: 4px solid orange;
+        border-radius: 20px;
+
+        background-color: lightcoral;
+     
+
+        /* 박스그림자: bxsh */
+        box-shadow: 5px  5px 4px #00000067;
+
+        /* 글자관련 */
+        font-size: 60px;
+
       }
     </style>
   </head>
   <body>
+     <!-- 제목 -->
+     <h1 class="tit">Relative 포지션</h1>
+
     <div class="bx" id="r1">r1</div>
     <div class="bx" id="s1">s1</div>
     <div class="bx" id="r2">r2</div>
