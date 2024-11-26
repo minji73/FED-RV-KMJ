@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CGV PJ 미디어쿼리 CSS - media.css */
+
+/********** 최대크기 1350px 이하 시작 **********/
+@media screen and (max-width: 1350px) {
+    /* GNB 위치변경 */
+    .gnb{
+        bottom: auto;
+        top: 80px;
+        right: 78px;
+        right: 75px;
+    }
+    /* 플렉스 진행방향 컬럼으로 변경 */
+    .gnb ul{
+        flex-direction: column;
+        /* 메뉴만 숨기기 */
+        display: none;
+    }
+    /* GNB 오버기 메뉴보이기
+    보일때는 원래 display로! 여기선 flex */
+    .gnb.gnb:hover ul{
+        display: flex;
+    }
+    .gnb
+}
+/********** 최대크기 1350px 이하 종료 **********/
