@@ -31,8 +31,23 @@ h2.temp{
 
 /*************** 메인영역 ***************/
 /*************** 2. 배너파트 ***************/
-/* 배너 영역 */
+/* 배너 영역 : 중앙영역(인디케이터)
+-> 배너와 겹쳐지게 앱솔루트로 구성함! */
+/* 배너 겉박스 부모자격 필요! */
+#ban-area{
+  position: relative;
+}
 .main-area .ban-area{
+  position: absolute;
+  top: 0;
+  /* 나의 부모는? #ban-area */
+
+  /* 가로중앙셋팅: 
+  앱솔루트이므로 마.영.오 적용불가! */
+  left: 50%;
+  translate: -50%;
+
+  width: 100%;
   height: 530px;
 }
 /* 배너 슬라이드박스 */
@@ -60,4 +75,91 @@ h2.temp{
   object-fit: cover;
   /* 오브젝트 핏 포지션 top변경 */
   object-position: top;
+}
+
+/********** 3. 캐릭터소개영역 **********/
+.main-area .cat-area{
+  /* 비율적용을 위해 높이값을 없앤다! */
+  height: auto;
+  aspect-ratio: 1320/190;
+}
+/* 캐릭터박스 */
+.cat-box{
+  /* 플렉스박스 */
+  display: flex;
+   /* 사이간격 */
+   gap: 1%;
+}
+/* 직계자식요소 div 4개 */
+.cat-box > div{
+  /* 플랙스자식 등분할설정 */
+  flex: 1;
+ 
+}
+/* 캐릭터 이미지 박스 */
+.cat-area figure{
+  transition: all .4s ease-out;
+}
+/* 캐릭터 각박스 오버스 캐릭터박스
+마진탑 올리기 */
+.cam-box>div:hover figure{
+  margin-top: -250px;
+}
+/* 캐릭터 이미지만 선택 */
+.cat-box figure > img{
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+/* 캐릭터 이름 이미지박스 */
+.cat-box figcaption{
+  text-align: center;
+  margin-top: -17%;
+}
+/* 이름 이미지 공통 */
+.cat-box figcaption img{
+  width: 35%;
+}
+/* 첫번째 이름이미지 처음엔 안보임 */
+.cat-box figcaption img:first-child{
+  display: none;
+}
+/* 캐릭터 개별박스에 오버시 이름변경
+-> 첫번째 보이고 두번째 숨기기 */
+.cat-box>div:hover figcaption img:first-child{
+  display: inline;
+}
+.cat-box>div:hover figcaption img:last-child{
+  display: none;
+}
+/* 캐릭터 설명박스 */
+.cat-box aside{
+  height: 0;
+  overflow: auto;
+  /* 배경 */
+  background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+  /* 트랜지션 */
+  transition: all .4s ease-out;
+}
+/* 각 캐릭터박스에 오버스 설명박스 보이기 */
+.cat-box>div:hover aside{
+  height: 250px;
+}
+/* 캐릭터 타이틀 */
+.cat-box aside h3{
+  font-family: 'Gugi';
+  font-size: 2.4rem;
+  font-weight: normal;
+  padding: 1.5rem 1rem .5rem;
+  /* 자간 letter-spacing */
+  letter-spacing: -1px;
+}
+/* 캐릭터 설명 */
+.cat-box aside p{
+  font-family: 'Courier New';
+  font-size: 1.8rem;
+  padding: 1.5rem;
+  line-height: 1.6;
+  /* 양쪽정렬 justify */
+  text-align: justify;
 }
