@@ -217,7 +217,7 @@ const btnNew = myFn.qs('.nbt');
 // (2) 변경대상
 const box2 = myFn.qs('#div02 ul');
 
-console.log('새리스트 대상:',btnNew,box2);
+// console.log('새리스트 대상:',btnNew,box2);
 
 // 2. 이벤트 설정하기 ///////
 myFn.addEvt(btnNew,'click', makeElement);
@@ -231,8 +231,9 @@ function makeElement(){
     // 변경대상은 ul임!
     // DOM메서드를 이용하여 메모리상에
     // 먼저 요소를 생성한다!
+
     // (2) 넣을 요소 만들기 ///
-    // (2-1) 새로운 li를 생성하여 변수에 할당
+    // (2-1) 새로운 li를 생상하여 변수에 할당
     let newEl = document.createElement("li");
 
     // (2-2) 이미지 요소 변수에 할당하기
@@ -243,24 +244,44 @@ function makeElement(){
     let ialt = document.createAttribute("alt");
     let itit = document.createAttribute("title");
 
-    // (2-4) 메모리상 속성에 값 셋팅하기: value로 셋팅
-    isrc.value = `src="images/ab1.jpg`;
-    ialt.value = '아이언맨';
-    itit.value = '클릭하면 지워집니다!';
+    // 1~5 사이랜덤수
+    // Math.ceil(Math.random()*최대수)
+    let rdm = Math.ceil(Math.random()*5);
+    console.log('랜덤수:',rdm);
+
+    // 순번에 맞는 이미지 설명 배열
+    const altText = ['아이언맨','딱딱이','토르','닥스','스타로드'];
+
+    // (2-4) 메모리상 속성에 값 셋팅하기 : value로 셋팅
+    isrc.value = `images/ab${rdm}.jpg`;
+    ialt.value = altText[rdm-1];
+    itit.value = '클릭하시면 지워집니다!';
 
     // (2-5) 메모리상 생성된 이미지 속성을 이미지에 넣기
     imgEl.setAttributeNode(isrc);
     imgEl.setAttributeNode(ialt);
     imgEl.setAttributeNode(itit);
 
-    // (2-6) 메모리상에 생성된 img넣기
+    // (2-6) 메모리상에 생성된 li에 생성된 img넣기
     newEl.appendChild(imgEl);
     // console.log(newEl);
 
-    // (2-7) 변경대상에 새로운 li추가 하여 넣기
+    // (2-7) li 화면 출력전 클릭이벤트 설정으로 지우기셋팅
+    newEl.onclick = () => newEl.remove();
+
+    // (3) 변경대상에 새로운 li추가하여 넣기
     // appendChild(요소) DOM메서드 사용!
     box2.appendChild(newEl);
 } //////// makeElement 함수 ////////
+
+// 처음부터 들어가 있는 li 5개를 돌면서 지우고 셋팅하기
+myFn.qsEl(box2,'li')
+.forEach(el=>{
+  // 클릭시 지우기
+  el.onclick = () => el.remove();
+  // 이미지에 title속성 넣기
+  myFn.qsEl(el,'img').title = '클릭하시면 지워집니다!';
+}); ///// ForEach ////////
 
 
 
