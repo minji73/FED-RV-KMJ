@@ -52,7 +52,10 @@ h2.temp {
 }
 /* 배너 슬라이드박스 */
 .ban-box {
-  height: 530px;
+  position: relative;
+  /* 부모자격 - 이동버튼, 인디케이터 */
+  /* height: 530px; */
+  aspect-ratio: 2.3;
   /* 넘치는 자식요소 숨기기 */
   overflow: hidden;
 }
@@ -67,11 +70,11 @@ h2.temp {
 /* 슬라이드 플렉스 자식요소 */
 .ban-box ul li {
   /* 강제로 줄이기 설정 해제 
-  -> 부모크기와 같은 박스로 옆으로 나감!
+  -> 부모크기와 같은 박스가 옆으로 나감!
   (1-설정(기본값)/0-해제) */
   flex-shrink: 0;
-  /* 가로크기는 부모와 같은 크기로! 
-  -> 슬라이드 하나의 크기가 부모와 같다!*/
+  /* 가로크기는 부모와 같은 크기로!
+  -> 슬라이드 하나의 크기가 부모와 같다! */
   flex-basis: 100%;
 }
 /* 슬라이드 이미지 */
@@ -83,8 +86,66 @@ h2.temp {
   object-position: top;
 }
 
+/*이동버튼*/
+.abtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /*Y축 중앙이동*/
+}
+/* 이미지 크기조정 */
+a.abtn img {
+  width: min(50px, 3.7vw);
+}
+/*왼쪽버튼*/
+.ab1 {
+  left: 50px;
+}
+
+/*오른쪽버튼*/
+.ab2 {
+  right: 50px;
+}
+
+/*블릿버튼*/
+.indic-box{
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: min(450px,321.8vw);
+  height: 5px;
+  z-index: 1;
+}
+.indic{
+  display: flex;
+  gap: 0 15px;
+}
+.indic li{
+  width: 150px;
+  height: 5px;
+  background-color: #ffffff66;
+}
+/* 가상요소바 */
+.indic li::before{
+  content: '';
+  display: block;
+  width: 0;
+  height: 5px;
+  background-color: #fff;
+}
+/* li.on일 경우 가상요소 width변경 */
+.indic li.on::before{
+  width: 100%;
+  transition: width 3s linear;
+}
+
+
 /********** 3. 캐릭터소개영역 **********/
 .main-area .cat-area {
+  position: relative;
+  /* 형제 배너박스보다 밑에 깔리므로
+  포지션을 줘서 나중에 오는 박스가 위로 오게함! */
+  
   /* 비율적용을 위해 높이값을 없앤다! */
   height: auto;
   aspect-ratio: 1320/190;
@@ -109,8 +170,10 @@ h2.temp {
 /* 캐릭터 각 박스 오버시 캐릭터박스
 마진탑 올리기 */
 .cat-box>div:hover figure{
-  margin-top: -250px;
-  /* margin-top: max(-200px,-15vw); */
+  /* 브라우저 화면크기를 중앙속박스 크기로 맞추고
+  최대크기 px,vw를 조정한다! 이때 마이너스니까
+  min이 아니고 max로 조정함! */
+  margin-top: max(-200px,-15vw);
 }
 /* 캐릭터 이미지만 선택 */
 .cat-box figure > img {
@@ -148,16 +211,21 @@ h2.temp {
   background: url(../images/eachBG.jpg) no-repeat bottom/cover;
   /* 트랜지션 */
   transition: .4s ease-out;
+  /* 둥근모서리 설정 */
+  border-radius: 10px 5px 5px 10px;
+  margin-top: 10px;
 }
 /* 각 캐릭터박스에 오버시 설명박스 보이기 */
 .cat-box>div:hover aside{
-  height: 250px;
-  /* height: min(200px,15vw); */
+  /* 중앙박스 최대크기에서 px과 vw크기를 맞추고
+  최소크기 출력을 테스트하면 잘된다! */
+  height: min(200px,15vw);
 }
 /* 캐릭터 타이틀 */
 .cat-box aside h3{
   font-family: 'Gugi';
-  font-size: 2.4rem;
+  /* 글자 최대크기를 min으로 설정 */
+  font-size: min(2.4rem,1.8vw);
   font-weight: normal;
   padding: 1.5rem 1rem .5rem;
   /* 자간 letter-spacing */
@@ -166,7 +234,8 @@ h2.temp {
 /* 캐릭터 설명 */
 .cat-box aside p{
   font-family: 'Single Day';
-  font-size: 1.8rem;
+  /* 글자 최대크기를 min으로 설정 */
+  font-size: min(1.8rem,1.3vw);
   padding: 1.5rem;
   line-height: 1.6;
   /* 양쪽정렬 justify */
