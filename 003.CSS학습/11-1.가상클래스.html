@@ -81,9 +81,10 @@
         color: hotpink;
         text-decoration: none;
       }
-      /* 방문후 :visited 
-         color: lime;            
-      }*/
+      /* 방문후 :visited */
+      h2 a:visited {
+        /* color: lime;             */
+      }
       /* 마우스 오버시 :hover */
       h2 a:hover {
         color: red;
@@ -100,9 +101,9 @@
 
       /* 요즘은 a요소를 바로 선택하여
         셋팅하고 :hover 정도만 변경한다! */
-       h2 a {
+      h2 a {
         color: darkorange;
-      } 
+      }
 
       /* 포커스 가상클래스 :focus */
       h2 a:focus {
@@ -172,42 +173,41 @@
         cursor: pointer;
       }
 
-      /* .part1의 첫번째자식 */
+      /* .part1 li 의 첫번째 자식 */
       .part1 li:first-child {
         font: 40px "궁서";
+        /* font-size: 40px;
+        font-family: "궁서"; */
         color: red;
       }
-
-      /* .part1 li의 첫번째 자식 오버시 */
-      .part1
-      li:first-child:hover {
+      /* .part1 li 의 첫번째 자식 오버시 */
+      .part1 li:first-child:hover {
         font-style: italic;
       }
-
-      /* .part1 li의 두번째 자식  */
+      
+      /* .part1 li 의 두번째 자식 */
       .part1 li:nth-child(2) {
         font: 35px "굴림";
         color: skyblue;
       }
-
-       /* .part1 li의 두번째 자식 오버시  */
-       .part1 li:nth-child(2):hover {
+      /* .part1 li 의 두번째 자식 오버시 */
+      .part1 li:nth-child(2):hover {
         font-weight: bold;
       }
-
-      /* .part1 li의 세번째 자식   */
+      /* .part1 li 의 세번째 자식 */
       .part1 li:nth-child(3) {
         font: 25px "돋움";
         color: darkkhaki;
       }
-/* .part1 li의 세번째 자식 호버시   */
+      /* .part1 li 의 세번째 자식 오버시 */
       .part1 li:nth-child(3):hover {
         /* 단어간격 : ws숫자 */
         word-spacing: 20px;
         /* 자간 : ls숫자 */
         letter-spacing: 10px;
       }
-/* .part1 li의 네번째 자식 호버시   */
+      
+      /* .part1 li 의 네번째 자식 */
       .part1 li:nth-child(4) {
         font: 42px "맑은 고딕";
         color: darkmagenta;
@@ -239,31 +239,32 @@
             예) nth-child(-n+20) -> 20,19,18,...
             -> 주의: -n을 반드시 먼저써야함!
         */
-      /* 4번째 li부터 끝까지 선택 */
+      
+        /* 4번째 li부터 끝까지선택 */
       /* .part1 li:nth-child(4) ~ li { */
 
-      /* 다섯번째부터 9번째 선택 */
-      .part1 li:nth-child(4) ~ li:nth-child(-n+9) {
+      /* 5번째부터 9번째까지 선택 */
+      .part1 li:nth-child(4) ~ li:nth-child(-n + 9) {
+
         font-size: 24px;
         color: darkgoldenrod;
       }
 
       /* 
-      /* li짝수번째 */
-      .part1 li:nth-child(even){
             짝수/홀수번째 li 그라데이션 넣기
             :nth-child(even) event은 짝수
             :nth-child(odd) odd는 홀수
+        */
+        /* li짝수번째 */
+        .part1 li:nth-child(even) {
+          background-image: linear-gradient(
+            to right,
+            lightblue,
+            rgb(255, 167, 135)
+            );
           }
-         /* li홀수번째 */  
-         .part1 li:nth-child(odd){
-        background-image: linear-gradient(
-          to right,
-          lightblue,
-          rgb(255, 167, 135)
-        );
-      }
-      .뭘까 {
+          /* li홀수번째 */
+      .part1 li:nth-child(odd) {
         background-image: linear-gradient(
           to right,
           rgb(168, 255, 199),
@@ -339,7 +340,8 @@
         5. 속성명만 쓰면 속성이 있는 것 모두 선택함
         예) [alt] -> alt속성이 있는 것 선택
 
-        참고)                https://www.w3schools.com/css/css_attribute_selectors.asp
+        참고)                
+        https://www.w3schools.com/css/css_attribute_selectors.asp
         
       *********************************************/
       /* = 정확히 일치 */

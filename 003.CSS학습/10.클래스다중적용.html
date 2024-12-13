@@ -76,13 +76,13 @@
         border: 15px dotted red;
       }
       /* 보더관련 클래스 */
-      .bx.bd1 {
-        border: 10px dotted pink;
+      .bx .bd1 {
+        border: 10px dotted pink !important;
       }
-      .bx.bd3 {
+      .bx .bd3 {
         border: 20px ridge darkorchid;
       }
-      .bx.bd2 {
+      .bx .bd2 {
         border: 5px dashed darkcyan;
       }
 
@@ -125,11 +125,19 @@
       <li class="fcls3 bd3">
         클래스적용3
       </li>
-      <li class="fcls1 bd1 bd6" id="bd5
-      ">
+      <li
+        class="fcls1 bd1"
+        id="bd4"
+        style="
+          border: 5px dashed greenyellow;
+        "
+      >
         클래스적용4
       </li>
-      <li class="fcls2 bd2 bd6 " id="bd4" style="border: 5px dashed green;">
+      <li
+        class="fcls2 bd2 bd6"
+        id="bd5"
+      >
         클래스적용5
       </li>
       <li class="fcls3 bd3">

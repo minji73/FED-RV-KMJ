@@ -77,7 +77,7 @@ body {
   overflow: hidden;
 
   /* 커서 이미지변경
-  -> 이미지 변경은 불가! 따라서 일정크기 이하여야만 
+  -> 이미지 크기변경은 불가! 따라서 일정크기 이하여야만
   커서로 쓸 수 있음! 가로,세로 중 모두 128px 이하여야함! */
   cursor: url('../images/coke_cursor.png'), auto;
 }
@@ -136,7 +136,8 @@ body {
 .iphone span:nth-child(1)::after {
   content: '';
   position: absolute;
-  top: 20%;
+  /* 중앙위치 */
+  top: 50%;
   left: 10%;
   width: 80%;
   /* 높이값 0 */
@@ -144,12 +145,12 @@ body {
   background: url(../images/avatar.jpg) no-repeat center/cover;
   /* 애니메이션 : 이시이지반방마 */
   animation: avatar-ani .5s ease-in-out 5s forwards;
-
 }
 /* 아바타 가운데서 펼쳐짐 */
-@keyframes avatar-ani{
+@keyframes avatar-ani {
   to{
-    /* 위로 올라가고 높이값 생김 */
+    /* 위로 올라가고 높이값 생김
+    - 중앙에서 펼쳐지는 모양 */
     top: 20%;
     height: 60%;
   }
