@@ -308,3 +308,127 @@ h2.temp {
   /* 양쪽정렬 justify */
   text-align: justify;
 }
+/*********** 방송편성소개파트 : .intro-part ***********/
+.main .intro-part .partbox {
+  height: 455px;
+  padding: 10px;
+}
+/* 서브타이틀 */
+.intro-part .stit {
+  padding-bottom: 0;
+}
+/* 하위제목+아이콘 박스 */
+.intro-desc {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 2.5rem;
+}
+.intro-desc h3 {
+  margin-right: 10px;
+}
+.intro-desc ul {
+  display: flex;
+  gap: 0 15px;
+}
+/* 설명박스 */
+.intro-txt {
+  padding: 20px;
+  font-size: 2.2rem;
+  line-height: 2;
+  color: #555;
+}
+/* 인트로버튼 */
+.intro-btn {
+  padding: 20px 50px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  background-color: transparent;
+  border: 1px solid #000;
+  font-weight: bold;
+}
+
+/* 인트로 동영상 박스 */
+.intro-mv-img {
+  position: relative;
+  /* 부모자격 */
+  aspect-ratio: 2/1.1;
+}
+/* 가상요소로 플레이버튼 만들기
+-> .off를 준 경우에만 가상요소 버튼보임
+따라서 비디오태그 넣을 경우 .off 지울것! */
+.intro-mv-img.off::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  background: url(../images/icon_play.png) no-repeat;
+  cursor: pointer;
+}
+
+/* 하위 이미지/동영상 */
+.intro-mv-img img,
+.intro-mv-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+/* 동영상 설명박스 */
+.intro-mv-box figcaption {
+  font-size: 2rem;
+  padding-top: 10px;
+}
+
+
+/************** 4. 미리보기영역 **************/
+.preview-area {
+  height: auto;
+    /* -> 높이값을 지정하면 내용만큼 자동으로
+    높이값이 잡히지 않아서 매번 크기에 따라
+    값을 셋팅해야하므로 auto로 두자! */
+    
+}
+.preview-box ul {
+  gap: 20px;
+}
+/* 리스트박스 */
+.preview-box li {
+  /* 한줄에 4개 플렉스 배치 - gap값 고려해서뺌 */
+  flex-basis: calc(100% / 4 - 15px);
+  padding: 24px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #22222240;
+  box-sizing: border-box;
+}
+/* 리스트 타이틀 */
+.preview-box li h3 {
+  font-size: 2rem;
+  color: #000;
+  font-weight: normal;
+}
+/* 리스트 내용 */
+.preview-box li p {
+  font-size: 1.5rem;
+  margin-top: 1.4rem;
+  color: #00000099;
+  line-height: 1.7;
+
+  /* 여러줄 말줄임표시 셋팅하기 */
+  display: -webkit-box;
+  overflow: hidden;
+  /* 말줄임표시 */
+  text-overflow: ellipsis;
+  /* 보여줄 라인수 셋팅속성 */
+  -webkit-line-clamp: 7;
+  /* 라인진행방향 셋팅 */
+  -webkit-box-orient: vertical;
+}
+/* 리스트박스 오버시 내용글자색 */
+.preview-box li:hover p {
+  color: #000;
+}
+
