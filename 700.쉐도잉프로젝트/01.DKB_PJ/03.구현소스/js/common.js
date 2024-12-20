@@ -1,1 +1,1 @@
-// 공통처리 JS - cmmon.js
+// 공통처리 JS - common.js
