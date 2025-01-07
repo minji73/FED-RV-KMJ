@@ -129,4 +129,13 @@ img {
   /* 박스에 이미지만 넣을때
   엔터간극 4px 하단공백 없애기  */
   vertical-align: middle;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.top-area {
+  color: #a31212;
 }/*# sourceMappingURL=main.css.map */
