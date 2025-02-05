@@ -1,48 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="컬렉션부터 스타일, 쇼핑, 뷰티, 라이프스타일, 셀러브리티까지 지금 가장 핫한 트렌드 소개"
-    />
-    <link
-      rel="shortcut icon"
-      href="https://img.vogue.co.kr/vogue/common/vogue-favicon.ico?v=0.2"
-      type="image/x-icon"
-    />
-    <title>보그 코리아 (Vogue Korea)</title>
-    <link rel="stylesheet" href="./css/login.css" />
+// 보그 JS 로그인 컴포넌트 - login.js
 
-    <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+// 로그인 기능 함수 불러오기 -> mounted에서 호출! ////
+import validLogin from "../function/valid_login.js";
 
-    <!-- 뷰JS vuex CDN -->
-    <script src="https://unpkg.com/vuex@3.0.0"></script>
-
-    <!-- 엑시오스 라이브러리 스탠드얼론 버전 가져오기(제이슨불러오기) -->
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
-
-    <!-- 제이쿼리 라이브러리 CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
-    <!-- 제이쿼리 UI CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-
-    <!-- 메인뷰 JS -->
-    <script type="module" src="./js/main_vue.js"></script>
-
-    <!-- 메인 JS -->
-    <!-- <script type="module" src="./js/main.js"></script> -->
-  </head>
-  <body>
-    <div id="vogue-app">
-      <!-- 1. 상단영역 -->
-      <top-comp></top-comp>
-      
-      <!-- 2. 로그인영역 -->
-      <div id="main-area">
+export const LoginComp =  
+Vue.component("login-comp",{
+    // 1. 템플릿
+    template: `
+    <div id="main-area">
         <main class="main-area ibx">
            <!-- 2-1. 로그인 페이지 상단영역 --> 
           <header class="ctop">
@@ -110,16 +75,18 @@
           </section>
         </main>
       </div>
-
-      <!-- 3. 하단영역 -->
-      <bottom-comp></bottom-comp>
-
-      <!-- 위로가기버튼 -->
-      <a href="#" class="tbtn fi fi-angle-up">
-        <span class="ir">위로가기버튼</span>
-      </a>
-
-
-    </div><!-- #vogue-app -->
-  </body>
-</html>
+    `,
+    // 2. 리턴함수 데이터
+    data(){
+        return{};
+    },
+    // 3. 메서드
+    methods: {},
+    // 4. 데이터셋업파트
+    created(){},
+    // 5. DOM 셋업파트
+    mounted(){
+        // 로그인 기능함수 호출!!!
+        validLogin();
+    },
+});
