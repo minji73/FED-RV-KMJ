@@ -134,7 +134,11 @@ const BottomComp = Vue.component("bottom-comp", {
             VOGUE.CO.KR IS OPERATED BY DOOSAN MAGAZINE
           </address>
         </footer>
-      </div>
+        <!-- 위로가기버튼 -->
+        <a href="#" class="tbtn fi fi-angle-up">
+          <span class="ir">위로가기버튼</span>
+        </a>
+      </div>      
   `,
   // 데이터 설정 ////
   data() {

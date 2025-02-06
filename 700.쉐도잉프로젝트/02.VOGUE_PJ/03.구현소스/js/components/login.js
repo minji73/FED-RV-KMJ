@@ -1,6 +1,7 @@
 // 보그 JS 로그인 컴포넌트 - login.js
 
 // 로그인 기능 함수 불러오기 -> mounted에서 호출! ////
+import myFn from "../function/my_function.js";
 import validLogin from "../function/valid_login.js";
 
 export const LoginComp =  
@@ -81,12 +82,19 @@ Vue.component("login-comp",{
         return{};
     },
     // 3. 메서드
-    methods: {},
+    methods: {
+      myTest(pm)
+    },
     // 4. 데이터셋업파트
     created(){},
     // 5. DOM 셋업파트
     mounted(){
         // 로그인 기능함수 호출!!!
-        validLogin();
+        validLogin(this.myTest);
+        // -> 뷰 컴포넌트 인스턴스의 메서드를 보냄!
+        // ->> DOM에서 뷰 메서드를 실행하는 쉬운방법!
+
+        // CSS 변경하기 ///
+        $('#css-set').attr('href','./css/login.css');
     },
 });
