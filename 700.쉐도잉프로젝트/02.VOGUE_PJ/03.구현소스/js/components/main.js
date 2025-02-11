@@ -1,6 +1,6 @@
-// 보그 PJ 페이지 컴포넌트 -main.js
+// 보그 PJ 메인 페이지 컴포넌트 - main.js
 // 메인페이지 컴포넌트 : 구성할 여러개의 컴포넌트호출 ////
-const MainComp = Vue.component("main-comp", {
+export const MainComp = Vue.component("main-comp", {
     template: `
           <main>
               <!-- 배너영역 -->
@@ -19,4 +19,3 @@ const MainComp = Vue.component("main-comp", {
       $("#css-set").attr("href", "./css/main.css");
     },
   }); ///////////// MainComp ///////////////////
-  
