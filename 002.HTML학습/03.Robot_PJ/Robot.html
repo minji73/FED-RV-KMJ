@@ -18,6 +18,19 @@
       rel="stylesheet"
       href="./css/robot.css"
     />
+    <!-- 애니 CSS -->
+    <link
+      rel="stylesheet"
+      href="./css/robot_ani.css"
+    />
+    <!-- 미디어쿼리 CSS -->
+    <link
+      rel="stylesheet"
+      href="./css/robot_media.css"
+    />
+
+    <!-- 로봇 JS -->
+     <script src="./js/robot.js"></script>
   </head>
   <body>
     <!-- 1. 상단영역 -->
@@ -37,7 +50,10 @@
         <!-- 2-1. 로봇박스 -->
         <section class="robot-box">
           <!-- 2-1-0.로봇말풍선 -->
-          <a href="#text-box" class="link-title">
+          <a
+            href="#text-box"
+            class="link-title"
+          >
             What is Robot?
           </a>
           <!-- 2-1-1. 로봇머리 -->
@@ -112,20 +128,25 @@
                 <!-- 유튭동영상 -->
                 <iframe
                   src="https://www.youtube.com/embed/RMD91n01DuA"
+                  allow="autoplay"
                 ></iframe>
               </div>
               <!-- 컨트롤버튼 -->
               <div class="btns">
-                <button class="ch1">
+                <button class="ch1"
+                title="채널1">
                   ch1
                 </button>
-                <button class="ch2">
+                <button class="ch2"
+                title="채널2">
                   ch2
                 </button>
-                <button class="ch3">
+                <button class="ch3"
+                title="채널3">
                   ch3
                 </button>
-                <button class="scale">
+                <button class="scale"
+                title="확대">
                   ▣
                 </button>
               </div>
@@ -133,7 +154,7 @@
           </div>
         </section>
         <!-- 2-2. 설명박스 -->
-        <section class="text-box">
+        <section class="text-box" id="text-box">
           <!-- 2-2-1.제목 -->
           <h2>Robot</h2>
           <!-- 2-2-2.출처 -->
@@ -301,12 +322,10 @@
     </div>
     <!-- 3. 하단영역 -->
     <div id="bottom-area">
-      <footer
-        class="bottom-area"
-      >
-      <!-- 3-1. 회사정보 -->
-       Robotronics Inc.
-    </footer>
+      <footer class="bottom-area">
+        <!-- 3-1. 회사정보 -->
+        Robotronics Inc.
+      </footer>
     </div>
   </body>
 </html>
