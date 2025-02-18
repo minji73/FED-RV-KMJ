@@ -23,9 +23,8 @@ import myFn from "./my_function";
 
 *************************************************************/
 
-//// 전체 이벤트 적용할 컴포넌트 구성하기 ///////////
+///// 전체 이벤트 적용할 컴포넌트 구성하기 //////////
 function EventShow() {
-
   /// 컴포넌트 리턴 코드 위에서 이벤트처리를 위한
   // 함수를 만들어서 사용할 수 있다!!!
   // 지역함수로 사용되는 것임!
@@ -33,7 +32,7 @@ function EventShow() {
   // 오버시 이벤트 한번만 실행되게 상태변수만들기
   let onceSts = false;
 
-  // 1. 내부함수 만들기 ///////////
+  // 1. 내부함수 만들기 ////////////////////////
   // (1) 소원이 무엇이냐 물어보는 함수 ///////////
   const showAladin = () => {
     // 1. 한번만 실행 분기문
@@ -55,7 +54,7 @@ function EventShow() {
     // 여기서 icss가 있으나 안보내주니 표시되지 않는다!
 
     // 3. 말풍선 박스에 글자넣기 ///
-    let titBox = mFn.qs(".tit");
+    let titBox = myFn.qs(".tit");
     titBox.innerText = "소원이 무엇이냐?";
 
     // 4. 말풍선 박스에 인라인 CSS코드 넣기
@@ -81,7 +80,7 @@ function EventShow() {
 
     // 6. 램프가져오기 버튼 3초후 보이기
     setTimeout(() => {
-      mFn.qsa("button")[0].style.display = "inline-block";
+      myFn.qsa("button")[0].style.display = "inline-block";
     }, 3000);
   }; ////////// showAladin 함수 ///////////
 
@@ -90,7 +89,7 @@ function EventShow() {
     console.log("램프 가져와~!!!");
 
     // 1. 램프선택하기 : .lamp
-    let lampBox = mFn.qs(".lamp");
+    let lampBox = myFn.qs(".lamp");
 
     // 램프 이미지 CSS 객체셋팅
     let lampCSS = {
@@ -115,7 +114,7 @@ function EventShow() {
 
     // 3. 0.5초후 램프 이미지 중앙이동하기
     setTimeout(() => {
-      let lampImg = mFn.qsEl(lampBox, "img").style;
+      let lampImg = myFn.qsEl(lampBox, "img").style;
       // 수직방향이동
       lampImg.top = "310px";
       // 수평방향 중앙계산 이동
@@ -126,7 +125,7 @@ function EventShow() {
 
     // 4. 소원빌기 버튼 3초후 보이기
     setTimeout(() => {
-      mFn.qsa("button")[1].style.display = "inline-block";
+      myFn.qsa("button")[1].style.display = "inline-block";
     }, 3000);
   }; ////////// getLamp 함수 ///////////
 
@@ -144,14 +143,35 @@ function EventShow() {
         // 함수에 값을 보낼때는 익명함수로 처리!
         clickFn={() => moveCar("#fcar")}
       />,
-      mFn.qs("#ferrari")
+      myFn.qs("#ferrari")
     );
     // ReactDOM.render(어쩌구,저쩌구);
     // 어쩌구를 저쩌구에 넣기
   }; //////////// getFerrari 함수 //////////
-  // 2. 리턴코드구역 /////////////
-  return <React.Fragment></React.Fragment>;
-} ////// EventShow ////////////
+
+  // 2. 리턴코드구역 //////////////////////////
+  return (
+    <React.Fragment>
+      <div id="tbox" style={{ textAlign: "center" }}>
+        {/* 스타일 인라인 적용시 바깥중괄호는 표현식
+            내부 중괄호는 객체형식의 스타일 설정임! */}
+        <MakeImg
+          isrc="./images/genie.avif"
+          ialt="지니"
+          /* 마우스오버시 showAladin함수호출 */
+          overFn={showAladin}
+        />
+        {/* 램프가 들어갈 요소 */}
+        <div className="lamp"></div>
+        {/* 버튼들 */}
+        <button onClick={getLamp}>램프가져오기~!</button> <br />
+        <button onClick={getFerrari}>소원빌기~! 페라리주세요~!!!</button>
+        {/* 소원이 무엇이냐 말풍선박스 */}
+        <div className="tit"></div>
+      </div>
+    </React.Fragment>
+  );
+} //////////// EventShow 컴포넌트 ////////////////
 
 /******************************************* 
     이미지 생성 컴포넌트 : MakeImg
@@ -181,3 +201,22 @@ function MakeImg({ isrc, ialt, icss, overFn, clickFn, itit, idName }) {
     />
   );
 } ///////////// MakeImg 컴포넌트 ////////////////
+
+///// 화면출력하기 /////////////
+ReactDOM.render(<EventShow />, myFn.qs('#root'));
+
+//// 일반함수로 페라리 움직이기 구현 ////////////
+function moveCar(eleName) {
+  // eleName - 요소명
+  console.log("페라리 움직여!", eleName);
+
+  // 1. 대상요소 셋팅하기
+  const tg = myFn.qs(eleName).style;
+  console.log(tg.translate, tg.scale);
+
+  // 2. 번갈아서 왔다갔다 움직이기
+  tg.translate = tg.translate == "150%" ? "0" : "150%";
+  tg.scale = tg.scale == "2" ? "1" : "2";
+
+  tg.transition = "2s ease-in-out";
+} ////////////// moveCar 함수 ///////////////
