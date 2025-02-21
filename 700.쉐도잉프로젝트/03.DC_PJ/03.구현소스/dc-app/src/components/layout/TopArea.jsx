@@ -20,6 +20,12 @@ export default function TopArea() {
         <nav className="gnb">
           <ul>
             {/* 1. 로고 컴포넌트 */}
+            <li>
+              <Link to="/">
+              <Logo LogoStyle="top" />
+              </Link>
+            </li>
+            {/* 2. GNB 메뉴 데이터로 map 바인딩 */}
             {
                 menu.map((v,i)=>
                     <li key={i}>
