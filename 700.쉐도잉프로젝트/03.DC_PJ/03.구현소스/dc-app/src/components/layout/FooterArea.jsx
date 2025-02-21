@@ -1,12 +1,12 @@
-/// 상단영역  컴포너트 : FooterArea.jsx /////
+/// 하단영역 컴포넌트 : FooterArea.jsx /////
 
 export default function FooterArea(){
 
-    /// 리턴 코드구역 /////////
-    return(
+    /// 리턴 코드구역 ////////
+    return (
         <>
-        <h1>하단영역 컴포넌트</h1>
+            <h1>하단영역 컴포넌트</h1>
         </>
     );
 
-} //////////// FooterArea 컴포넌트 ////////
+} //////////// FooterArea 컴포넌트 ///////////

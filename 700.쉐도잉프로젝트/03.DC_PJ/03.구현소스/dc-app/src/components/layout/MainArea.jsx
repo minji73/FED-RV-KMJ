@@ -1,4 +1,4 @@
-/// 메인영역  컴포너트 : MainArea.jsx /////
+/// 메인영역 컴포넌트 : MainArea.jsx /////
 
 import { Outlet } from "react-router-dom";
 // Outlet 컴포넌트는 리액트라우터에서 컴포넌트를
@@ -6,13 +6,11 @@ import { Outlet } from "react-router-dom";
 
 export default function MainArea(){
 
-    /// 리턴 코드구역 /////////
-    return(
-        <>
+    /// 리턴 코드구역 ////////
+    return (
         <main className="cont">
-            <Outlet/>
+            <Outlet />
         </main>
-        </>
     );
 
-} //////////// MainArea 컴포넌트 ////////
+} //////////// MainArea 컴포넌트 ///////////
