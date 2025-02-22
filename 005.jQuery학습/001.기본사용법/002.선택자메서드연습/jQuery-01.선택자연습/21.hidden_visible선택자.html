@@ -6,10 +6,11 @@
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
     <script src="../jquery-ui.min.js"></script>
-    <!-- 색깔변경 애니메이션은 반드시 제이쿼리UI를 
-     불러와야함! 그리고 라이브러리 아래 위치해야함 -->
+    <!-- 색상변경 애니는 반드시 제이쿼리UI를 
+     불러와야함! 그리고 라이브러리 아래 위치해야함! -->
     <script>
       $(() => {
+        $("body").css({fontSize:"3vw"});
         /* 
           :hidden 선택자 -> display:none인 요소를 선택함
           :visible 선택자 -> display:none이 아닌 요소를 선택함
@@ -41,14 +42,14 @@
   <body>
     <div id="container">
       <ul class="nav1">
-        <li style="display: none">나는 사과</li>
+        <li style="display: none">나는 사과!</li>
         <li>banana</li>
         <li>grape</li>
       </ul>
 
       <ul class="nav2">
         <li>lion</li>
-        <li style="display: none">나는 호랑이</li>
+        <li style="display: none">나는 호랭이!</li>
         <li>fox</li>
       </ul>
     </div>

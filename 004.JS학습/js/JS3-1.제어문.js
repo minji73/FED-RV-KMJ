@@ -310,20 +310,16 @@ var infoLocal =
 var inputLocal =
   document.querySelector("#local");
 
-console.log(
-  "대상찍어:",
-  btnLocal,
-  infoLocal,
-  inputLocal
-);
+// console.log("대상찍어:",btnLocal,infoLocal,inputLocal);
 
 // 2. 이벤트 설정하기
 btnLocal.onclick = showLocal;
 // 주의! 선언된 함수를 할당할때 뒤에 소괄호를 하지말자!
 // 바로 실행되니까~~!
 // 추가로 입력창에 onkeypress이벤트 발생시 함수호출처리
-inputLocal.onkeypress = function(){
-  if(event.keyCode === 13) {
+inputLocal.onkeypress = function () {
+  // 1. enter키가 입력되었는지 확인
+  if (event.keyCode == 13) {
     // 2. showLocal()호출
     showLocal();
   }
@@ -335,7 +331,7 @@ inputLocal.onkeypress = function(){
 *******************************************/
 function showLocal() {
   // 1. 함수호출확인
-  console.log("국번을 알려줘~~!");
+  // console.log("국번을 알려줘~~!");
 
   // 2. 입력값 읽어오기
   var inputText = inputLocal.value;
@@ -397,26 +393,31 @@ function showLocal() {
       msg =
         "나성에 가면 편지를 전해줘요~!";
       break;
+    default:
+      msg = "etc";
   }
 
-  /* 4. 메시지 만들기 */
+  // 4. 메시지 만들기
   // 등록되지 않은 지역일 경우
-  if (inputText === "etc") {
+  if (msg == "etc") {
     msg =
       "입력하신 지역은 등록되지 않았습니다!";
   }
-
   // 등록된 지역일 경우
   else {
     msg = `${inputText}의 지역번호는 
-    <span style="font-size:40px;
-    color:hotpink">${msg}</span>입니다!`;
+    <span 
+      style="
+      font-size:40px;
+      color:hotpink"
+      >${msg}</span>입니다!`;
   }
 
-  // 5. info에 출력
+  // 5. #info에 출력
   infoLocal.innerHTML = msg;
+} /////////////// showLocal함수 /////////////
 
-  /********************************************** 
+/********************************************** 
       [ switch case문 ]
       - 단일조건을 분류하여 실행문을 만들어 줄때 사용하는 제어문
 
@@ -445,4 +446,179 @@ function showLocal() {
       없으면 이 부분이 실행됨(단, 필요시 사용)
       -> default문에는 break를 쓰지 않는다!
   **********************************************/
-} /////////////// showLocal함수 /////////////
+
+// [ for문 구구단 출력을 위한 코드 ] /////
+// 1. 대상선정 - 이벤트대상, 변경대상
+// 1-1. 이벤트 대상 : select#selbx
+var selbx =
+  document.querySelector("#selbx");
+// 1-2. 변경 대상 : 출력대상 - .g1
+var g1 = document.querySelector(".g1");
+// DOM 선택이 된 이유는 외부JS호출시
+// defer 로 호출했기때문에
+// html태그 로딩후 실행됨!
+// console.log("선택대상:",selbx,g1);
+
+// 2. 이벤트 설정하기 ////
+selbx.onchange = makeGugu;
+// 함수를 그대로 할당하면 이벤트 발생시 함수를 실행함!
+
+// 3. 함수만들기 ////////////
+function makeGugu() {
+  // 함수를 호출한 요소 자신은? this!
+  // this === select#selbx요소
+
+  // 1. 선택값 option의 value값
+  var optVal = this.value;
+
+  // 2. 함수호출확인
+  console.log(
+    "구구단을 쓰자!",
+    optVal,
+    this
+  );
+
+  // 3. 구구단 만들기 ///
+  var hcode = `<h2>${optVal}단</h2>`;
+
+  // 구구단 넣기 : for문 사용! ///
+  // for(시;한;증){코드}
+  
+  for (var i = 1; i < 10; i++) {
+    hcode += `${optVal} × ${i} ＝ ${
+      optVal * i
+    } <br>`;
+  } /// for /////////
+
+  // 4. 화면요소에 출력하기 ////
+  // 출력대상은 g1변수 -> .g1박스
+  g1.innerHTML = hcode;
+} //////////// makeGugu 함수 ///////////////
+
+/***************************************** 
+   [ for문 ]
+    - 어떤 실행문을 순서대로 여러번 반복
+    실행할 경우 사용하는 제어문
+
+    ((구문구조))
+    _____________________________________
+
+    for(시;한;증){실행코드}
+    - 시 -> 시작값(변수선언과 함께 숫자할당)
+    - 한 -> 한계값(숫자를 조건문으로 사용)
+    - 증 -> 증감(1씩증가 ++ / 1씩감소 --)
+
+    ______________________________________
+
+    ((구문해석))
+    1. 먼저 시작값을 변수에 선언 후 할당함
+    2. 중앙에 있는 한계값 조건에 맞는지 검사함
+    3. 맞으면(true) for문의 중괄호{}안의 코드를 실행함
+    4. 중괄호 안의 코드를 실행후 세번째 증감으로 감
+        ++ / -- 로 1씩 증감함
+    5. 중앙에 있는 한계값 조건에 맞는지 검사함
+    6. 조건에 맞는 동안 중괄호 안의 코드를 실행함
+    7. 중앙의 한계값 조건에 맞지 않으면(false)
+        for문을 빠져나온다!
+
+    ((참고 : 무한루프))
+    for문의 범위를 잘못 설정하여 무한히
+    for문을 돌게 되는 것을 무한루프에 빠졌다!
+    라고 한다. 이때 최신 브라우저 엔진은
+    범위에러로 처리하여 브라우저 자체가
+    다운되지 않도록 처리한다!
+*****************************************/
+
+
+
+// [ while문 구구단 출력을 위한 코드 ] /////
+// 1. 대상선정 - 이벤트대상, 변경대상
+// 1-1. 이벤트 대상 : select#selbx2
+var selbx2 =
+  document.querySelector("#selbx2");
+// 1-2. 변경 대상 : 출력대상 - .g2
+var g2 = document.querySelector(".g2");
+// DOM 선택이 된 이유는 외부JS호출시
+// defer 로 호출했기때문에
+// html태그 로딩후 실행됨!
+console.log("선택대상:",selbx2,g2);
+
+// 2. 이벤트 설정하기 ////
+selbx2.onchange = makeGugu2;
+// 함수를 그대로 할당하면 이벤트 발생시 함수를 실행함!
+
+// 3. 함수만들기 ////////////
+function makeGugu2() {
+  // 함수를 호출한 요소 자신은? this!
+  // this === select#selbx요소
+
+  // 1. 선택값 option의 value값
+  var optVal = this.value;
+
+  // 2. 함수호출확인
+  console.log(
+    "구구단을 쓰자!",
+    optVal,
+    this
+  );
+
+  // 3. 구구단 만들기 ///
+  var hcode = `<h2>${optVal}단</h2>`;
+
+  // 구구단 넣기 : while문 사용! ///
+  // while(한계값){코드}
+
+  // 시작값
+  var i = 1;
+
+  while(i < 10){ // 소괄호안에 "한계값"
+    hcode += `${optVal} × ${i} ＝ ${
+          optVal * i
+        } <br>`;
+    // 증감은 마지막에!
+    i++;
+  } ///// while /////
+  
+  // for(시;한;증){코드}  
+  // for (var i = 1; i < 10; i++) {
+  //   hcode += `${optVal} × ${i} ＝ ${
+  //     optVal * i
+  //   } <br>`;
+  // } /// for /////////
+
+  // 4. 화면요소에 출력하기 ////
+  // 출력대상은 g2변수 -> .g2박스
+  g2.innerHTML = hcode;
+} //////////// makeGugu2 함수 ///////////////
+
+/********************************************* 
+   [ while문 ]
+
+    - 반복실행코드를 위한 조건으로 만드는 제어문
+
+    ((구문구조))
+    ______________________________
+    시작값;
+
+    while(한계값){
+        실행코드;
+        증감;
+    }
+    ______________________________
+
+    ((구문해석))
+
+    - for문과 유사하나 시작값이 while문 윗쪽에 나옴
+    - 한계값은 while문 소괄호 안에 씀
+    - 증감은 while 실행코드 내부에 씀
+    (주의: 증감을 안쓰면 무한루프에 빠짐!)
+
+    - >>>>> while문과 for문은 무엇이 다른가?
+
+    시작값과 증감없이 단지 조건에 의해서
+    반복실행이 필요한 경우 사용할 수 있다!
+
+    while(조건){코드}
+
+    -> 예) 중복숫자 피하기, 직전값 피하기 등
+    *********************************************/
