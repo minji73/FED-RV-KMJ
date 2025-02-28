@@ -14,7 +14,7 @@ export default function FooterArea() {
       <ul>
         {/* 하단로고 컴포넌트 넣기 */}
         <li>
-          <Logo logoStyle="bottom"/>
+          <Logo logoStyle="bottom" />
         </li>
         <li>
           {/* 하단링크박스 */}
